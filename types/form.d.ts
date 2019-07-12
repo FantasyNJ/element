@@ -1,4 +1,5 @@
 import { ElementUIComponent, ElementUIComponentSize } from './component'
+import { Options } from 'scroll-into-view-if-needed/typings/'
 
 export type FormItemLabelPosition = 'left' | 'right' | 'top'
 
@@ -66,6 +67,17 @@ export declare class ElForm extends ElementUIComponent {
    */
   validate (callback: ValidateCallback): void
   validate (): Promise<boolean>
+
+  /**
+   * Validate the whole form
+   *
+   * @param option The options to define how to scroll into view
+   * @param callback A callback to tell the validation result
+   */
+  validateAndScroll (options: Options | boolean, callback: ValidateCallback): void
+  validateAndScroll (options: Options | boolean): Promise<boolean>
+  validateAndScroll (): Promise<boolean>
+
   /**
    * Validate certain form items
    *
@@ -76,7 +88,7 @@ export declare class ElForm extends ElementUIComponent {
 
   /** reset all the fields and remove validation result */
   resetFields (): void
-  
+
   /** clear validation message for certain fields */
   clearValidate (props?: string | string[]): void
 }

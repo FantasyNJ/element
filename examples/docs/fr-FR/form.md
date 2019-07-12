@@ -607,6 +607,7 @@ Tout les composants d'un formulaire héritent leur attribut `size` de ce formula
 | Méthode | Description | Paramètres |
 | ---- | ---- | ---- |
 | validate | Valide le formulaire. Prends une callback en paramètre. Après la validation, la callback est exécutée avec deux paramètres: un boolean indiquant si la validation est bonne, et un objet contenant tout les champs qui ont échoués. Retourne une promesse si aucune callback n'est passée. | Function(callback: Function(boolean, object)) |
+| validateAndScroll | 与 validate 相似，但校验完后，第一个报错元素滚动到可视窗口内。第一个参数 options 定义滚动行为，详细配置见 [配置参数](https://github.com/stipsan/scroll-into-view-if-needed#options)；第二个参数规则同 validate 中回调函数的规则。若不传入回调函数，则会返回一个 promise | Function(options: object \| boolean, callback: Function(boolean, object))
 | validateField | Valide un ou plusieurs champs du formulaire. | Function(props: string \| array, callback: Function(errorMessage: string)) |
 | resetFields | Efface tout les champs et les résultats de validation. | — |
 | clearValidate | Efface les messages de validation de certains champs. Le paramètre est le nom du champ ou une liste des champs concernés. S'il est omis, tout les champs seront concernés. | Function(props: string \| array) |

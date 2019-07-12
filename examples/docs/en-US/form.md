@@ -608,6 +608,7 @@ All components in a Form inherit their `size` attribute from that Form. Similarl
 | Method | Description | Parameters |
 | ---- | ---- | ---- |
 | validate | validate the whole form. Takes a callback as a param. After validation, the callback will be executed with two params: a boolean indicating if the validation has passed, and an object containing all fields that fail the validation. Returns a promise if callback is omitted | Function(callback: Function(boolean, object)) |
+| validateAndScroll | 与 validate 相似，但校验完后，第一个报错元素滚动到可视窗口内。第一个参数 options 定义滚动行为，详细配置见 [配置参数](https://github.com/stipsan/scroll-into-view-if-needed#options)；第二个参数规则同 validate 中回调函数的规则。若不传入回调函数，则会返回一个 promise | Function(options: object \| boolean, callback: Function(boolean, object))
 | validateField | validate one or several form items | Function(props: string \| array, callback: Function(errorMessage: string)) |
 | resetFields | reset all the fields and remove validation result | — |
 | clearValidate | clear validation message for certain fields. The parameter is prop name or an array of prop names of the form items whose validation messages will be removed. When omitted, all fields' validation messages will be cleared | Function(props: string \| array) |
