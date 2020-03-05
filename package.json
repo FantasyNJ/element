@@ -1,6 +1,6 @@
 {
   "name": "qj-ui",
-  "version": "0.0.1",
+  "version": "0.0.1-rc3",
   "description": "A components of pc base on vue 2.13.0",
   "main": "lib/qj-ui.common.js",
   "files": [
