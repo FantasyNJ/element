@@ -69,9 +69,9 @@
   const MIN_TIME = parseDate('00:00:00', 'HH:mm:ss');
   const MAX_TIME = parseDate('23:59:59', 'HH:mm:ss');
 
-  const minTimeOfDay = function(date) {
-    return modifyDate(MIN_TIME, date.getFullYear(), date.getMonth(), date.getDate());
-  };
+  // const minTimeOfDay = function(date) {
+  //   return modifyDate(MIN_TIME, date.getFullYear(), date.getMonth(), date.getDate());
+  // };
 
   const maxTimeOfDay = function(date) {
     return modifyDate(MAX_TIME, date.getFullYear(), date.getMonth(), date.getDate());
