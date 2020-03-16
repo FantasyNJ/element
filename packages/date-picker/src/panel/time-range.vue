@@ -49,7 +49,7 @@
           type="button"
           class="el-time-panel__btn confirm"
           @click="handleConfirm()"
-          >{{ t('el.datepicker.confirm') }}</button>
+          :disabled="btnDisabled">{{ t('el.datepicker.confirm') }}</button>
       </div>
     </div>
   </transition>
@@ -178,8 +178,8 @@
 
       handleChange() {
         if (this.isValidValue([this.minDate, this.maxDate])) {
-          // this.$refs.minSpinner.selectableRange = this.selectableRange;
-          // this.$refs.maxSpinner.selectableRange = this.selectableRange;
+          // this.$refs.minSpinner.selectableRange = [[minTimeOfDay(this.minDate), this.maxDate]];
+          // this.$refs.maxSpinner.selectableRange = [[this.minDate, maxTimeOfDay(this.maxDate)]];
           this.$emit('pick', [this.minDate, this.maxDate], true);
         }
       },
