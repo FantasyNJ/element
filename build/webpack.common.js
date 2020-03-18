@@ -12,10 +12,10 @@ module.exports = {
   output: {
     path: path.resolve(process.cwd(), './lib'),
     publicPath: '/dist/',
-    filename: 'element-ui.common.js',
+    filename: 'qj-el-ui.common.js',
     chunkFilename: '[id].js',
     libraryExport: 'default',
-    library: 'ELEMENT',
+    library: 'QJELUI',
     libraryTarget: 'commonjs2'
   },
   resolve: {

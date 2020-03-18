@@ -9,7 +9,11 @@ export default {
 
   props: {
     isRange: Boolean,
-    arrowControl: Boolean
+    arrowControl: Boolean,
+    isCrossDays: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {

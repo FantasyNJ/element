@@ -46,7 +46,7 @@
     ref="reference"
     v-clickoutside="handleClose"
     v-else>
-    <i :class="['el-input__icon', 'el-range__icon', triggerClass]"></i>
+    <!--    <i :class="['el-input__icon', 'el-range__icon', triggerClass]"></i>-->
     <input
       autocomplete="off"
       :placeholder="startPlaceholder"
@@ -74,12 +74,15 @@
       @change="handleEndChange"
       @focus="handleFocus"
       class="el-range-input">
-    <i
-      @click="handleClickIcon"
-      v-if="haveTrigger"
-      :class="[showClose ? '' + clearIcon : '']"
-      class="el-input__icon el-range__close-icon">
-    </i>
+    <template>
+      <i
+        @click="handleClickIcon"
+        v-if="haveTrigger && showClose"
+        :class="[showClose ? '' + clearIcon : '']"
+        class="el-input__icon el-range__close-icon">
+      </i>
+      <i v-else class='el-input__icon el-range__close-icon el-icon-time'></i>
+    </template>
   </div>
 </template>
 
@@ -831,6 +834,7 @@ export default {
       this.picker.selectionMode = this.selectionMode;
       this.picker.unlinkPanels = this.unlinkPanels;
       this.picker.arrowControl = this.arrowControl || this.timeArrowControl || false;
+      this.picker.isCrossDays = this.isCrossDays || false;
       this.$watch('format', (format) => {
         this.picker.format = format;
       });
@@ -844,7 +848,7 @@ export default {
           const format = DEFAULT_FORMATS.timerange;
 
           ranges = Array.isArray(ranges) ? ranges : [ranges];
-          this.picker.selectableRange = ranges.map(range => parser(range, format, this.rangeSeparator));
+          this.picker.selectableRange = ranges.map(range => parser(range, format, '-'));
         }
 
         for (const option in options) {
